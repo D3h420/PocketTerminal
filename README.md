@@ -1,6 +1,7 @@
 # Raspberry Pi Zero 2 W + 3.5" ST7796 (SPI) + CardKB (I2C)
 
 Działający setup konsoli tekstowej na ekranie ST7796 + klawiatura CardKB jako wirtualna klawiatura Linux (`uinput`).
+![IMG_8349](https://github.com/user-attachments/assets/1f3419e5-5778-4272-ac83-d4440f506f9a)
 
 ## 1. Sprzęt
 
@@ -26,7 +27,7 @@ Działający setup konsoli tekstowej na ekranie ST7796 + klawiatura CardKB jako 
 | CardKB | SDA | 3 | GPIO2 | I2C SDA1 |
 | CardKB | SCL | 5 | GPIO3 | I2C SCL1 |
 
-## 3. Zworki IM na płytce LCD
+## 3. Zworki IM na płytce LCD (zostały domyślnie)
 
 Ustawienie działające dla tego projektu:
 
@@ -101,6 +102,7 @@ sudo reboot
 ```
 
 6.2 Checksum działającej wersji
+
 Rozmiar: 112 bajtów
 SHA256: 7b00dcc47ba563843ead08f595edae6c994fdf44cdab23afd52c11be9d43a6bb
 
