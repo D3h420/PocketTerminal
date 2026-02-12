@@ -1,7 +1,6 @@
 # Raspberry Pi Zero 2 W + 3.5" ST7796 (SPI) + CardKB (I2C)
 
 Działający setup konsoli tekstowej na ekranie ST7796 + klawiatura CardKB jako wirtualna klawiatura Linux (`uinput`).
-![IMG_8349](https://github.com/user-attachments/assets/1f3419e5-5778-4272-ac83-d4440f506f9a)
 
 ## 1. Sprzęt
 
