@@ -50,6 +50,8 @@ echo uinput | sudo tee /etc/modules-load.d/uinput.conf >/dev/null
 
 ## 5. Konfiguracja LCD (config.txt)
 
+`sudo nano /boot/firmware/config.txt`
+
 W pliku config.txt zostaw dla LCD ten blok:
 ```
 [all]
@@ -58,6 +60,24 @@ dtoverlay=mipi-dbi-spi,spi0-0,write-only,speed=10000000
 dtparam=width=320,height=480
 dtparam=reset-gpio=27,dc-gpio=22,backlight-gpio=18
 ```
+
+zmiana orientacji o 90 stopni:
+```
+python3 - <<'PY'
+p = bytearray(open('/lib/firmware/panel.bin','rb').read())
+i = p.find(b'\x36\x01\x48')   # cmd 0x36, len 1, value 0x48
+if i < 0:
+    raise SystemExit("Nie znalazłem wpisu MADCTL (36 01 48) w panel.bin")
+p[i+2] = 0x28                 # 90° CW
+open('/tmp/panel.bin','wb').write(p)
+print("OK, patched offset:", i)
+PY
+
+sudo install -m 644 /tmp/panel.bin /lib/firmware/panel.bin
+```
+
+ + w config.txt zamień rozdzielczość na poziomą:
+ `dtparam=width=480,height=320`
 
 ## panel.bin (działający init + poprawne kolory)
 
